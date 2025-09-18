@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acessibilidade na Web</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #ffffff;
+      color: #222222;
+      margin: 0;
+      padding: 0;
+      font-size: 1rem;
+      transition: font-size 0.3s ease;
+    }
+    header, footer {
+      background-color: #004080;
+      color: #ffffff;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav a {
+      color: #ffffff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    nav a:focus, nav a:hover {
+      outline: 2px solid #ffcc00;
+    }
+    main {
+      padding: 1.5rem;
+    }
+    .card {
+      background-color: #f2f2f2;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .card h2 {
+      color: #004080;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #004080;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:focus, button:hover {
+      outline: 2px solid #ffcc00;
+      background-color: #003366;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌐 Acessibilidade na Web</h1>
+    <nav aria-label="Menu principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#dicas">Dicas</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div style="margin-top:10px;">
+      <button onclick="aumentarFonte()">A+</button>
+      <button onclick="diminuirFonte()">A-</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="sobre" class="card">
+      <h2>O que é acessibilidade?</h2>
+      <p>A acessibilidade digital garante que todas as pessoas, incluindo aquelas com deficiência, consigam utilizar a web sem barreiras.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Accessibility.svg" alt="Ícone de acessibilidade universal">
+    </section>
+
+    <section id="dicas" class="card">
+      <h2>Dicas de acessibilidade</h2>
+      <ul>
+        <li>Use textos alternativos em imagens.</li>
+        <li>Garanta contraste adequado entre texto e fundo.</li>
+        <li>Organize o conteúdo com títulos claros.</li>
+        <li>Permita navegação por teclado.</li>
+      </ul>
+    </section>
+
+    <section id="contato" class="card">
+      <h2>Entre em contato</h2>
+      <form>
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome"><br><br>
+
+        <label for="email">E-mail:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="mensagem">Mensagem:</label><br>
+        <textarea id="mensagem" name="mensagem" rows="4"></textarea><br><br>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Feito com ♿ para todos! - 2025</p>
+  </footer>
+
+  <script>
+    // Controle de fonte
+    let fontSize = 1;
+    function aumentarFonte() {
+      fontSize += 0.1;
+      document.body.style.fontSize = fontSize + "rem";
+    }
+    function diminuirFonte() {
+      if (fontSize > 0.6) {
+        fontSize -= 0.1;
+        document.body.style.fontSize = fontSize + "rem";
+      }
+    }
+
+    // Atalho de teclado (A = ir para seção sobre)
+    document.addEventListener("keydown", function(event) {
+      if (event.key.toLowerCase() === "a") {
+        document.getElementById("sobre").scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  </script>
+</body>
+</html>
